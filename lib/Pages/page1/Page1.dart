@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mobydoby/Pages/page1/widgets/Widgets.dart';
 
 
+import 'widgets/Widgets.dart';
 
+class page_1 extends StatefulWidget {
+  const page_1({super.key});
 
-class Page1 extends StatelessWidget {
-  Page1({super.key});
+  @override
+  State<page_1> createState() => _page_1State();
+}
+
+class _page_1State extends State<page_1> {
 
   final List<List<String>> Menu = [
     ["https://www.themealdb.com//images//media//meals//sbx7n71587673021.jpg","Chick-Fil-A Sandwich"],
@@ -16,27 +21,42 @@ class Page1 extends StatelessWidget {
     ["https://www.themealdb.com//images//media//meals//hglsbl1614346998.jpg","Piri-piri chicken and slaw"]
   ];
 
-  get gridDelegate => null;
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(22,22,22,1),
-        leading: Icon(Icons.ac_unit),
-        title: Text("Welcome",style: TextStyle(color: Color.fromRGBO(150,147,140,1) , ),),
-        iconTheme: IconThemeData(color: Color.fromRGBO(237,136,48,1),size : 40),
+        backgroundColor: const Color.fromRGBO(22,22,22,1),
+        elevation: 0,
+        leading: const Padding(
+          padding: EdgeInsets.only(top:10,left: 15),
+          child: Text("Welcome",style: TextStyle(color: Colors.white ,fontSize: 25 ,fontWeight: FontWeight.bold),),
+        ),
+
+        leadingWidth: 200,
+        title:const Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(Icons.account_balance_wallet),
+
+          ],
+        ),
+
+        iconTheme: const IconThemeData(color: Color.fromRGBO(237,136,48,1),size : 30),
 
       ),
-      backgroundColor: Color.fromRGBO(22,22,22,1),
+      backgroundColor:const  Color.fromRGBO(22,22,22,1),
       body: GridView.builder(
 
           itemCount: Menu.length,
 
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context,index){
 
-            return MenuItem(Menu,index);
+            return InkWell(
+                onTap: (){},
+
+                child: MenuItem(Menu,index));
 
           }),
 

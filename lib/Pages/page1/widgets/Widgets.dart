@@ -9,41 +9,38 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+        height: 20,
+        width: 20,
+        color: const Color.fromRGBO(37,34,29, 1),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
 
-
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Container(
-          height: 20,
-          width: 20,
-          color: const Color.fromRGBO(37,34,29, 1),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: SizedBox(
-                    width: 100,
-                      child: CachedNetworkImage(
-                        imageUrl: Menu[index][0],
-                      )
-                  ),
+            children: [
+              const SizedBox(height: 20),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(35),
+                child: SizedBox(
+                  width: 80,
+                    child: CachedNetworkImage(
+                      imageUrl: Menu[index][0],
+                    )
                 ),
-                Center(
-                  child: Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                      child: Text(Menu[index][1],style: const TextStyle(color: Colors.white),textAlign: TextAlign.center,)
-                  ),
+              ),
+              Center(
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                    child: Text(Menu[index][1],style: const TextStyle(color: Colors.white),textAlign: TextAlign.center,)
                 ),
+              ),
 
-              ],
-          ),
-          ),
+            ],
+        ),
         ),
       ),
     );

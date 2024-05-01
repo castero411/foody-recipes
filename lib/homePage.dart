@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
+import 'package:mobydoby/Pages/Page2/Page2.dart';
+import 'package:mobydoby/Pages/Page3/Page3.dart';
 import 'package:mobydoby/Pages/page1/Page1.dart';
-import 'package:mobydoby/Pages/Page2.dart';
-import 'package:mobydoby/Pages/Page3.dart';
 
 
 class homePage extends StatefulWidget {
@@ -16,9 +17,9 @@ class _homePageState extends State<homePage> {
   int currentState = 0;
 
   List <Widget> widgets = [
-    Page1(),
-    const Page2(),
-    const Page3(),
+    page_1(),
+    Page2(),
+    Page3(),
   ];
 
    Color background =  Color.fromRGBO(22,22,22,1);
