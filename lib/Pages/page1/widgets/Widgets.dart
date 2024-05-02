@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 
 class MenuItem extends StatelessWidget {
 
-  final List <List<String>> Menu ;
-  int index;
-  MenuItem(this.Menu,this.index);
+
+  final String url;
+  final String name;
+  const MenuItem({super.key, required this.url, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,10 @@ class MenuItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(35),
                 child: SizedBox(
                   width: 80,
+                    height: 80,
                     child: CachedNetworkImage(
-                      imageUrl: Menu[index][0],
+                      fit:BoxFit.cover,
+                      imageUrl:url,
                     )
                 ),
               ),
@@ -35,7 +38,7 @@ class MenuItem extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
-                    child: Text(Menu[index][1],style: const TextStyle(color: Colors.white),textAlign: TextAlign.center,)
+                    child: Text(name,style: const TextStyle(color: Colors.white),textAlign: TextAlign.center,)
                 ),
               ),
 

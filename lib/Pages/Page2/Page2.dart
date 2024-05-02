@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/Page2/services/remote_service.dart';
 import "package:mobydoby/Pages/common/Models/Categories.dart";
-import 'package:mobydoby/Pages/common/Services/remote_services.dart';
+
+import '../page1/widgets/Widgets.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({super.key});
@@ -20,22 +21,6 @@ class _Page2State extends State<Page2> {
   List<Categories>? categories;
   var isLoaded = false;
 
-
-
-  @override
-  void initState(){
-    super.initState();
-
-    getData();
-  }
-  getData()async{
-    categories = (await RemoteServices().get_categories()) as List<Categories>?;
-    if(categories != null){
-      setState(() {
-        isLoaded = true;
-      });
-    }
-  }
 
 
 
@@ -77,12 +62,11 @@ class _Page2State extends State<Page2> {
                           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                           itemCount: snapshot.data?.length,
                           itemBuilder: (context, index) {
-                            return  Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Container(
-                                color: const Color.fromRGBO(37,34,29, 1),
-                                child: Image.network(snapshot.data![index].strCategoryThumb),
-                              ),
+                            return  InkWell(
+                              onTap : (){
+
+                              },
+                              child: MenuItem(name:snapshot.data![index].strCategory,url:snapshot.data![index].strCategoryThumb,)
                             );
                           }
                       ),
@@ -90,8 +74,14 @@ class _Page2State extends State<Page2> {
                   }
                   else {
                     return Center(
-                      child: LinearProgressIndicator(
-                        color: loadingColor,
+                      heightFactor: 15,
+                      child: TextButton(
+                        child: Text("Refresh"), onPressed: () {
+                        setState(() {
+
+                        });
+                      },
+
                       ),
                     );
                   }

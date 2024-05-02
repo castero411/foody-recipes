@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobydoby/Pages/common/subPages/ItemsView.dart';
 
 
 import 'widgets/Widgets.dart';
@@ -48,16 +49,20 @@ class _page_1State extends State<page_1> {
       backgroundColor:const  Color.fromRGBO(22,22,22,1),
       body: GridView.builder(
 
+
           itemCount: Menu.length,
 
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (context,index){
 
             return InkWell(
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ItemView(Menu[index][1],Menu[index][0]))
+                  );
+                },
 
-                child: MenuItem(Menu,index));
-
+                child: MenuItem(name:Menu[index][1],url:Menu[index][0]));
           }),
 
     );
