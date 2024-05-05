@@ -6,8 +6,6 @@ import 'dart:convert';
 
 Categories categoriesFromJson(String str) => Categories.fromJson(json.decode(str));
 
-String categoriesToJson(Categories data) => json.encode(data.toJson());
-
 class Categories {
   List<Category> categories;
 
@@ -19,9 +17,6 @@ class Categories {
     categories: List<Category>.from(json["categories"].map((x) => Category.fromJson(x))),
   );
 
-  Map<String, dynamic> toJson() => {
-    "categories": List<dynamic>.from(categories.map((x) => x.toJson())),
-  };
 }
 
 class Category {
@@ -44,10 +39,4 @@ class Category {
     strCategoryDescription: json["strCategoryDescription"],
   );
 
-  Map<String, dynamic> toJson() => {
-    "idCategory": idCategory,
-    "strCategory": strCategory,
-    "strCategoryThumb": strCategoryThumb,
-    "strCategoryDescription": strCategoryDescription,
-  };
 }
