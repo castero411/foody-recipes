@@ -77,14 +77,19 @@ class ItemView extends StatelessWidget {
                             Container(
                               alignment:Alignment.centerLeft,
                               padding:  EdgeInsets.only(top:10,bottom: 20,left: 20),
-                              child: Text("- Scale + ingredient_1 "
-                                  "\n- Scale + "  +
-                                  "\n- Scale + ingredient_3"
-                                  "\n- Scale + ingredient_4"
-                                  "\n- Scale + ingredient_5"
-                                  "\n- Scale + ingredient_6"
-                                  "\n- Scale + ingredient_8",
-                                style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500,),
+                              child: Text(  snapShot.data!.meals['strMeasure1'] + snapShot.data!.meals['strIngredient1'] +
+                                  "\n" + snapShot.data!.meals['strMeasure2'] + snapShot.data!.meals['strIngredient2'] +
+                                  "\n" + snapShot.data!.meals['strMeasure3'] + snapShot.data!.meals['strIngredient3']+
+                                  "\n" + snapShot.data!.meals['strMeasure4'] + snapShot.data!.meals['strIngredient4'] +
+                                  "\n" + snapShot.data!.meals['strMeasure5'] + snapShot.data!.meals['strIngredient5'] +
+                                  "\n" + snapShot.data!.meals['strMeasure6'] + snapShot.data!.meals['strIngredient6'] +
+                                  "\n" + snapShot.data!.meals['strMeasure7'] + snapShot.data!.meals['strIngredient7'] +
+                                  "\n" + snapShot.data!.meals['strMeasure8'] + snapShot.data!.meals['strIngredient8'] +
+                                  "\n" + snapShot.data!.meals['strMeasure9'] + snapShot.data!.meals['strIngredient9'] +
+                                  "\n" + snapShot.data!.meals['strMeasure10'] + snapShot.data!.meals['strIngredient10'] +
+                                  "\n" + snapShot.data!.meals['strMeasure11'] + snapShot.data!.meals['strIngredient11'] +
+                                  "\n" + snapShot.data!.meals['strMeasure12'] + snapShot.data!.meals['strIngredient12'] ,
+                                style: const TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500,),
                               ),
                             )
                           ],
@@ -107,14 +112,8 @@ class ItemView extends StatelessWidget {
                               Container(
                                 alignment:Alignment.centerLeft,
                                 padding: const EdgeInsets.only(top:10,bottom: 20,left: 20),
-                                child:const  Text("- Scale + ingredient_1 "
-                                    "\n- Scale + ingredient_2"
-                                    "\n- Scale + ingredient_3"
-                                    "\n- Scale + ingredient_4"
-                                    "\n- Scale + ingredient_5"
-                                    "\n- Scale + ingredient_6"
-                                    "\n- Scale + ingredient_8",
-                                  style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500,),
+                                child:  Text( snapShot.data!.meals['strInstructions']??"no instructions",
+                                  style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w500,),
                                 ),
                               )
                             ],
@@ -126,7 +125,7 @@ class ItemView extends StatelessWidget {
                 );}
             else {
               return Center(
-                  child: Text("error",textAlign: TextAlign.center,),
+                  child: Text("error",textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),
               );
             }
               },

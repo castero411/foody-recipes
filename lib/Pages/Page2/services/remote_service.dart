@@ -10,6 +10,7 @@ class RemoteServieces{
 
 
     var response = await client.get(uri);
+    client.close();
     if(response.statusCode == 200){
       var json = response.body;
       final Map<String, dynamic> data = jsonDecode(json);

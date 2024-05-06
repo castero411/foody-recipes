@@ -11,7 +11,8 @@ class RemoteServices2 {
 
   Future<Meals?> getCategories() async {
     var client = http.Client();
-    var uri = Uri.parse("www.themealdb.com/api/json/v1/1/lookup.php?i=52772");
+    var uri = Uri.parse('https://www.themealdb.com/api/json/v1/1/lookup.php?i='+ItemNumber);
+
     var response = await client.get(uri);
     if (response.statusCode == 200) {
       var json = response.body;
@@ -19,9 +20,12 @@ class RemoteServices2 {
 
       Meals meals = Meals.fromJson(data); // Adjusted to use Meals.fromJson
 
+
       return meals;
-    } else {
+    }
+    else {
       return null;
     }
   }
 }
+
