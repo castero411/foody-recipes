@@ -34,9 +34,7 @@ class _Page2State extends State<Page2> {
         actions: [
           IconButton(
               onPressed: (){
-                showSearch(context: context,
-                    delegate: CustomSearchDelegate(),
-                );
+                //todo : create a search engine
               },
               icon: const Icon(Icons.search,color: Color.fromRGBO(237,136,48,1) ,size : 30,)),
 
@@ -45,7 +43,7 @@ class _Page2State extends State<Page2> {
       ),
 
       body:  Padding(
-        padding:EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
             const Text("Categories",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
@@ -95,77 +93,3 @@ class _Page2State extends State<Page2> {
   }
 }
 
-class CustomSearchDelegate extends SearchDelegate{
-
-  List<String> search_items = [
-    "Apple",
-    "Cinnamon",
-    "Chicken",
-    "Meat",
-    "Fish",
-    "Sea Food",
-    "Fruits"
-  ];
-
-
-  @override
-  List<Widget>? buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: const Icon(Icons.clear),
-        onPressed: (){
-          query = "";
-        },
-      )
-    ];
-  }
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: (){
-          close(context, null);
-        },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    List<String> matchQuery = [];
-    for (var item in search_items){
-      if(item.toLowerCase().contains((query.toLowerCase()))){
-        matchQuery.add(item);
-      }
-    }
-    return ListView.builder(
-      itemCount: matchQuery.length,
-      itemBuilder: (context, index){
-          var result;
-          return ListTile(
-            title: Text(result),
-          );
-      }
-    );
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    List<String> matchQuery = [];
-    for (var item in search_items){
-      if(item.toLowerCase().contains((query.toLowerCase()))){
-        matchQuery.add(item);
-      }
-    }
-    return ListView.builder(
-        itemCount: matchQuery.length,
-        itemBuilder: (context, index){
-          var result;
-          return ListTile(
-            title: Text(result),
-          );
-        }
-    );
-  }
-  
-}

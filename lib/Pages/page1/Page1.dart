@@ -14,12 +14,12 @@ class page_1 extends StatefulWidget {
 class _page_1State extends State<page_1> {
 
   final List<List<String>> Menu = [
-    ["https://www.themealdb.com//images//media//meals//sbx7n71587673021.jpg","Chick-Fil-A Sandwich"],
-    ["https://www.themealdb.com//images//media//meals//qxytrx1511304021.jpg","Chicken Couscous"],
-    ["https://www.themealdb.com//images//media//meals//qrqywr1503066605.jpg","Chicken Fajita Mac and Cheese"],
-    ["https://www.themealdb.com//images//media//meals//kvbotn1581012881.jpg","Honey Balsamic Chicken"],
-    ["https://www.themealdb.com//images//media//meals//ruwpww1511817242.jpg","Rappie Pie"],
-    ["https://www.themealdb.com//images//media//meals//hglsbl1614346998.jpg","Piri-piri chicken and slaw"]
+    ["https://www.themealdb.com//images//media//meals//sbx7n71587673021.jpg","Chick-Fil-A Sandwich","53016"],
+    ["https://www.themealdb.com//images//media//meals//qxytrx1511304021.jpg","Chicken Couscous","52850"],
+    ["https://www.themealdb.com//images//media//meals//qrqywr1503066605.jpg","Chicken Fajita Mac and Cheese","52818"],
+    ["https://www.themealdb.com//images//media//meals//kvbotn1581012881.jpg","Honey Balsamic Chicken","52993"],
+    ["https://www.themealdb.com//images//media//meals//ruwpww1511817242.jpg","Rappie Pie","52933"],
+    ["https://www.themealdb.com//images//media//meals//hglsbl1614346998.jpg","Piri-piri chicken and slaw","53039"]
   ];
 
   @override
@@ -47,24 +47,34 @@ class _page_1State extends State<page_1> {
 
       ),
       backgroundColor:const  Color.fromRGBO(22,22,22,1),
-      body: GridView.builder(
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: GridView.builder(
 
 
-          itemCount: Menu.length,
+            itemCount: Menu.length,
 
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (context,index){
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            itemBuilder: (context,index){
 
-            return InkWell(
-                onTap: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ItemView(Menu[index][1],Menu[index][0]))
-                  );
-                },
+              return InkWell(
+                  onTap: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ItemView(itemName:Menu[index][1],itemImage: Menu[index][0],itemCode: Menu[index][2],))
+                    );
+                  },
 
-                child: MenuItem(name:Menu[index][1],url:Menu[index][0]));
-          }),
+                  child: MenuItem(name:Menu[index][1],url:Menu[index][0]));
+            }),
+      ),
 
     );
+  }
+
+  Future<void> _refresh()async{
+    setState(() {
+
+    });
+    return Future.delayed(const Duration(seconds: 1));
   }
 }
