@@ -26,7 +26,7 @@ class ItemView extends StatelessWidget {
         appBar: AppBar(
             backgroundColor: background,
             leading: IconButton(
-              icon:  Icon(Icons.arrow_back_ios_new,color: Color.fromRGBO(237,136,48,1),size : 30),
+              icon: const Icon(Icons.arrow_back_ios_new,color: Color.fromRGBO(237,136,48,1),size : 30),
               onPressed: (){
                 Navigator.pop(context);
               },
@@ -34,7 +34,7 @@ class ItemView extends StatelessWidget {
 
         ),
         body: Padding(
-          padding:  EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: SingleChildScrollView(
 
             child: FutureBuilder(
@@ -49,7 +49,7 @@ class ItemView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         child: Container(color: colo_1,width: 200,height: 200,
                           child: Padding(
-                            padding:  EdgeInsets.all(20),
+                            padding: const  EdgeInsets.all(20),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(200),
                               child: CachedNetworkImage(
@@ -71,12 +71,12 @@ class ItemView extends StatelessWidget {
                           children: [
                             Container(
                               width: 1000,
-                              padding:  EdgeInsets.only(top: 10,left: 10),
-                              child:   Text("Ingredient",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500,),textAlign: TextAlign.center,),
+                              padding:  const EdgeInsets.only(top: 10,left: 10),
+                              child:  const Text("Ingredient",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500,),textAlign: TextAlign.center,),
                             ),
                             Container(
                               alignment:Alignment.centerLeft,
-                              padding:  EdgeInsets.only(top:10,bottom: 20,left: 20),
+                              padding: const EdgeInsets.only(top:10,bottom: 20,left: 20),
                               child: Text(  snapShot.data!.meals['strMeasure1'] + snapShot.data!.meals['strIngredient1'] +
                                   "\n" + snapShot.data!.meals['strMeasure2'] + snapShot.data!.meals['strIngredient2'] +
                                   "\n" + snapShot.data!.meals['strMeasure3'] + snapShot.data!.meals['strIngredient3']+
@@ -97,7 +97,7 @@ class ItemView extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(top:20,bottom: 20),
+                      padding: const EdgeInsets.only(top:20,bottom: 20),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
@@ -106,14 +106,15 @@ class ItemView extends StatelessWidget {
                             children: [
                               Container(
                                 width: 1000,
-                                padding:  EdgeInsets.only(top: 10,left: 10),
+                                padding: const EdgeInsets.only(top: 10,left: 10),
                                 child: const  Text("Instructions",style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500,),textAlign: TextAlign.center,),
                               ),
+
                               Container(
                                 alignment:Alignment.centerLeft,
                                 padding: const EdgeInsets.only(top:10,bottom: 20,left: 20),
                                 child:  Text( snapShot.data!.meals['strInstructions']??"no instructions",
-                                  style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w500,),
+                                  style: const TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.w500,),
                                 ),
                               )
                             ],
@@ -124,8 +125,8 @@ class ItemView extends StatelessWidget {
                   ],
                 );}
             else {
-              return Center(
-                  child: Text("error",textAlign: TextAlign.center,style: TextStyle(color: Colors.white),),
+              return const Center(
+                  child: CircularProgressIndicator(color: Colors.white,),
               );
             }
               },

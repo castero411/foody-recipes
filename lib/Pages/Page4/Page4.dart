@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Page3 extends StatelessWidget {
-  const Page3({super.key});
+class Page4 extends StatelessWidget {
+  const Page4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +15,14 @@ class Page3 extends StatelessWidget {
         elevation: 0,
         leading: const Padding(
           padding: EdgeInsets.only(top:10,left: 15),
-          child: Text("Random",style: TextStyle(color: Colors.white ,fontSize: 25,fontWeight: FontWeight.bold),),
+          child: Text("Settings",style: TextStyle(color: Colors.white ,fontSize: 25,fontWeight: FontWeight.bold),),
         ),
 
         leadingWidth: 200,
         title:const Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Icon(Icons.shuffle),
+            Icon(Icons.settings),
 
           ],
         ),

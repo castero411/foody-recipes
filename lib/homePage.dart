@@ -5,6 +5,8 @@ import 'package:mobydoby/Pages/Page2/Page2.dart';
 import 'package:mobydoby/Pages/Page3/Page3.dart';
 import 'package:mobydoby/Pages/page1/Page1.dart';
 
+import 'Pages/Page4/Page4.dart';
+
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -21,6 +23,7 @@ class _homePageState extends State<homePage> {
     page_1(),
     Page2(),
     Page3(),
+    Page4(),
   ];
 
    Color background =  Color.fromRGBO(22,22,22,1);
@@ -47,7 +50,7 @@ class _homePageState extends State<homePage> {
           unselectedItemColor: Colors.grey[300],
           splashBorderRadius: 50,
            enableFloatingNavBar: true,
-          selectedItemColor: Color.fromRGBO(233,141,54, 1),
+          selectedItemColor: const Color.fromRGBO(233,141,54, 1),
 
           onTap: (index){
       setState(() {
@@ -56,16 +59,22 @@ class _homePageState extends State<homePage> {
 
       },
         items: [
+
           DotNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
           ),
+
           DotNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
 
 
           ),
           DotNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.shuffle),
+
+          ),
+          DotNavigationBarItem(
+            icon: const Icon(Icons.settings),
 
           ),
 
