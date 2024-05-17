@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/Page2/subPages/Widget/items.dart';
 
+import '../../common/subPages/ItemsView.dart';
+
 class Itemfeed extends StatefulWidget {
   final String category;
   final String image;
@@ -57,7 +59,9 @@ class _ItemfeedState extends State<Itemfeed> {
                 itemBuilder: (context,index){
                     return InkWell(
                         onTap: (){
-
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => ItemView(itemName:items[index][0],itemImage: items[index][1],itemCode: items[index][2],))
+                          );
                         },
                         child: Items(image: items[index][1] ,name: items[index][0] ,code: items[index][2] ,)
                     );
