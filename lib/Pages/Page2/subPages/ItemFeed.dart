@@ -29,35 +29,43 @@ class _ItemfeedState extends State<Itemfeed> {
 
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          String thisTitle = widget.category;
-          return [
-            SliverAppBar(
-              expandedHeight: 150.0, // Height of the app bar when expanded
-              pinned: true, // Pins the app bar to the top
-              floating: true, // Makes the app bar float over content
-              forceElevated: innerBoxIsScrolled, // Controls shadow based on scroll
-              backgroundColor: const Color.fromRGBO(22,22,22,1),
-              iconTheme: const IconThemeData(color: Color.fromRGBO(237,136,48,1) ,size : 30,),// App bar color
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text(thisTitle,style: const  TextStyle(color: Colors.white , fontWeight: FontWeight.bold),), // Title displayed on app bar
-                collapseMode: CollapseMode.none, // Pins the title when collapsed
-
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(23,23,23,1),
+      body: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            String thisTitle = widget.category;
+            return [
+              SliverAppBar(
+                expandedHeight: 150.0, // Height of the app bar when expanded
+                pinned: true, // Pins the app bar to the top
+                floating: true, // Makes the app bar float over content
+                forceElevated: innerBoxIsScrolled, // Controls shadow based on scroll
+                backgroundColor: const Color.fromRGBO(22,22,22,1),
+                iconTheme: const IconThemeData(color: Color.fromRGBO(237,136,48,1) ,size : 30,),// App bar color
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(thisTitle,style: const  TextStyle(color: Colors.white , fontWeight: FontWeight.bold),), // Title displayed on app bar
+                  collapseMode: CollapseMode.none, // Pins the title when collapsed
+      
+                ),
               ),
-            ),
-          ];
-        },
-        body: Padding(
-          padding: EdgeInsets.all(10),
-          child: ListView.builder(
-          itemCount: 10,
-              itemBuilder: (context,index){
-                  return items();
-              }
-          ),
-        )
+            ];
+          },
+          body: Padding(
+            padding: EdgeInsets.all(10),
+            child: ListView.builder(
+            itemCount: items.length,
+                itemBuilder: (context,index){
+                    return InkWell(
+                        onTap: (){
 
+                        },
+                        child: Items(image: items[index][1] ,name: items[index][0] ,code: items[index][2] ,)
+                    );
+                }
+            ),
+          )
+      
+      ),
     );
 }
 }
