@@ -20,10 +20,10 @@ class _homePageState extends State<homePage> {
   int currentState = 0;
 
   List <Widget> widgets = [
-    page_1(),
-    Page2(),
-    Page3(),
-    Page4(),
+    const page_1(),
+    const Page2(),
+    const Page3(),
+    const Page4(),
   ];
 
    Color background =  Color.fromRGBO(22,22,22,1);
@@ -36,7 +36,7 @@ class _homePageState extends State<homePage> {
 
 
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 10),
         child: DotNavigationBar(
           marginR: const EdgeInsets.symmetric(horizontal: 50, vertical:0),
 
