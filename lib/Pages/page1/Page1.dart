@@ -60,7 +60,7 @@ class _page_1State extends State<page_1> {
               return InkWell(
                   onTap: (){
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ItemView(itemName:Menu[index][1],itemImage: Menu[index][0],itemCode: Menu[index][2],))
+                        MaterialPageRoute(builder: (context) => ItemView(itemCode: Menu[index][2],random: true,))// true for not random XD
                     );
                   },
 

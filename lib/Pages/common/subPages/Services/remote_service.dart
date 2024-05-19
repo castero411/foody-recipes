@@ -7,11 +7,19 @@ import 'package:mobydoby/Pages/common/subPages/Services/model.dart';
 class RemoteServices2 {
 
   final String ItemNumber;
-  RemoteServices2({required this.ItemNumber});
+  bool random;
+  RemoteServices2({required this.ItemNumber,this.random = false});
 
   Future<Meals?> getCategories() async {
     var client = http.Client();
-    var uri = Uri.parse('https://www.themealdb.com/api/json/v1/1/lookup.php?i='+ItemNumber);
+    var uri;
+    if (random) {
+      uri = Uri.parse(
+          'https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + ItemNumber);
+    }
+    else{
+      uri = Uri.parse('https://www.themealdb.com/api/json/v1/1/random.php');
+    }
 
     var response = await client.get(uri);
     if (response.statusCode == 200) {

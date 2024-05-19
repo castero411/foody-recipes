@@ -6,9 +6,8 @@ class ItemView extends StatelessWidget {
 
 
   final String itemCode ;
-  final String itemName;
-  final String itemImage;
-  const ItemView({super.key, required this.itemName, required this.itemImage,required this.itemCode});
+  final bool random;
+  const ItemView({super.key,required this.itemCode,this.random = false});
 
   final SizedBox _heightSize = const SizedBox(height: 20,);
 
@@ -39,7 +38,7 @@ class ItemView extends StatelessWidget {
 
             child: FutureBuilder(
 
-              future: RemoteServices2(ItemNumber: itemCode).getCategories(),
+              future: RemoteServices2(ItemNumber: itemCode, random: random ).getCategories(),
               builder: (context,snapShot){
             if(snapShot.hasData){
                 return Column(
@@ -52,16 +51,13 @@ class ItemView extends StatelessWidget {
                             padding: const  EdgeInsets.all(20),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(200),
-                              child: CachedNetworkImage(
-                                width: 20,
-                                height: 20,
-                                imageUrl: itemImage,),
+                              child: Image.network(snapShot.data!.meals['strMealThumb'])
                             ),
                           ),
                         )
                     ),
                     _heightSize,
-                    Text(itemName,style: const TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
+                    Text(snapShot.data!.meals['strMeal'],style: const TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
                     _heightSize,
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
@@ -127,6 +123,7 @@ class ItemView extends StatelessWidget {
             else {
               return const Center(
                   child: CircularProgressIndicator(color: Colors.white,),
+
               );
             }
               },

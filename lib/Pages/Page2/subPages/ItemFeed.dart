@@ -79,7 +79,7 @@ class _ItemfeedState extends State<Itemfeed> {
                     return InkWell(
                       onTap: (){
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => ItemView(itemName:item.strMeal,itemImage: item.strMealThumb,itemCode: item.idMeal,))
+                            MaterialPageRoute(builder: (context) => ItemView(itemCode: item.idMeal, random: true,))
                         );
                       },
                       child: Items(
