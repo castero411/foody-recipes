@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobydoby/Pages/StartPage/Page.dart';
 import 'package:mobydoby/homePage.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: homePage(),
+      title: 'food app',
+      home: startPage(),
       debugShowCheckedModeBanner: false,
     );
   }

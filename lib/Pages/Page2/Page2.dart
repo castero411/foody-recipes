@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/Page2/services/remote_service.dart';
 import 'package:mobydoby/Pages/Page2/subPages/ItemFeed.dart';
 import "package:mobydoby/Pages/common/Models/Categories.dart";
+import 'package:mobydoby/Pages/mainMenu/widgets/Widgets.dart';
 
-import '../page1/widgets/Widgets.dart';
 
 class Page2 extends StatefulWidget {
   const Page2({super.key});

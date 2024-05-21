@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:mobydoby/Pages/Page2/Page2.dart';
 import 'package:mobydoby/Pages/Page3/Page3.dart';
-import 'package:mobydoby/Pages/page1/Page1.dart';
-
-import 'Pages/Page4/Page4.dart';
+import 'package:mobydoby/Pages/mainMenu/mianMenu.dart';
 
 
 class homePage extends StatefulWidget {
@@ -20,10 +18,9 @@ class _homePageState extends State<homePage> {
   int currentState = 0;
 
   List <Widget> widgets = [
-    const page_1(),
+    const mainMenu(),
     const Page2(),
     const Page3(),
-    const Page4(),
   ];
 
    Color background =  Color.fromRGBO(22,22,22,1);
@@ -53,11 +50,11 @@ class _homePageState extends State<homePage> {
           selectedItemColor: const Color.fromRGBO(233,141,54, 1),
 
           onTap: (index){
-      setState(() {
-      currentState=index;
-      });
+              setState(() {
+                currentState=index;
+                      });
+              },
 
-      },
         items: [
 
           DotNavigationBarItem(
@@ -71,10 +68,6 @@ class _homePageState extends State<homePage> {
           ),
           DotNavigationBarItem(
             icon: const Icon(Icons.shuffle),
-
-          ),
-          DotNavigationBarItem(
-            icon: const Icon(Icons.settings),
 
           ),
 

@@ -4,14 +4,14 @@ import 'package:mobydoby/Pages/common/subPages/ItemsView.dart';
 
 import 'widgets/Widgets.dart';
 
-class page_1 extends StatefulWidget {
-  const page_1({super.key});
+class mainMenu extends StatefulWidget {
+  const mainMenu({super.key});
 
   @override
-  State<page_1> createState() => _page_1State();
+  State<mainMenu> createState() => _page_1State();
 }
 
-class _page_1State extends State<page_1> {
+class _page_1State extends State<mainMenu> {
 
   final List<List<String>> Menu = [
     ["https://www.themealdb.com//images//media//meals//sbx7n71587673021.jpg","Chick-Fil-A Sandwich","53016"],
@@ -26,7 +26,7 @@ class _page_1State extends State<page_1> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
         backgroundColor: const Color.fromRGBO(22,22,22,1),
         elevation: 0,
         leading: const Padding(
