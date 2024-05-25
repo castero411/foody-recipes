@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/common/subPages/ItemsView.dart';
-
+import 'package:mobydoby/common/colors.dart';
 
 import 'widgets/Widgets.dart';
 
@@ -27,7 +27,7 @@ class _page_1State extends State<mainMenu> {
 
     return Scaffold(
         appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(22,22,22,1),
+        backgroundColor: background,
         elevation: 0,
         leading: const Padding(
           padding: EdgeInsets.only(top:10,left: 15),
@@ -43,10 +43,10 @@ class _page_1State extends State<mainMenu> {
           ],
         ),
 
-        iconTheme: const IconThemeData(color: Color.fromRGBO(237,136,48,1),size : 30),
+        iconTheme: IconThemeData(color: icon_color,size : 30),
 
       ),
-      backgroundColor:const  Color.fromRGBO(22,22,22,1),
+      backgroundColor: background,
       body: RefreshIndicator(
         onRefresh: _refresh,
         child: GridView.builder(

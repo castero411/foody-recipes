@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import "package:mobydoby/Pages/common/subPages/Services/remote_service.dart";
+import 'package:mobydoby/common/colors.dart';
 
 class ItemView extends StatelessWidget {
 
@@ -15,9 +16,6 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var background = const  Color.fromRGBO(22,22,22,1);
-    Color loadingColor = const Color.fromRGBO(130,129,127, 1);
-    var colo_1 = const Color.fromRGBO(37,34,29, 1);
 
 
     return Scaffold(
@@ -46,7 +44,7 @@ class ItemView extends StatelessWidget {
                   children: [
                     ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Container(color: colo_1,width: 200,height: 200,
+                        child: Container(color: color_1,width: 200,height: 200,
                           child: Padding(
                             padding: const  EdgeInsets.all(20),
                             child: ClipRRect(
@@ -60,9 +58,15 @@ class ItemView extends StatelessWidget {
                     Text(snapShot.data!.meals['strMeal'],style: const TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
                     _heightSize,
                     ClipRRect(
+                      child: Container(
+
+                      ),
+                    ),
+                    _heightSize,
+                    ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        color:colo_1 ,
+                        color:color_1 ,
                         child: Column(
                           children: [
                             Container(
@@ -97,7 +101,7 @@ class ItemView extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          color:colo_1 ,
+                          color:color_1 ,
                           child: Column(
                             children: [
                               Container(

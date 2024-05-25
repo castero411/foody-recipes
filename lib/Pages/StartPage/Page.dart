@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/mainMenu/mianMenu.dart';
+import 'package:mobydoby/homePage.dart';
 
 class startPage extends StatelessWidget {
   const startPage({super.key});
@@ -52,7 +53,7 @@ class startPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => const mainMenu()),
+                        MaterialPageRoute(builder: (context) => const homePage()),
                       );
                     } ,
                   )

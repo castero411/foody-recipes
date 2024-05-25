@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/Page2/Page2.dart';
 import 'package:mobydoby/Pages/Page3/Page3.dart';
 import 'package:mobydoby/Pages/mainMenu/mianMenu.dart';
-
+import 'common/colors.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -22,8 +22,6 @@ class _homePageState extends State<homePage> {
     const Page2(),
     const Page3(),
   ];
-
-   Color background =  Color.fromRGBO(22,22,22,1);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +45,7 @@ class _homePageState extends State<homePage> {
           unselectedItemColor: Colors.grey[300],
           splashBorderRadius: 50,
            enableFloatingNavBar: true,
-          selectedItemColor: const Color.fromRGBO(233,141,54, 1),
+          selectedItemColor: icon_color ,
 
           onTap: (index){
               setState(() {

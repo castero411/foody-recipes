@@ -3,6 +3,7 @@ import 'package:mobydoby/Pages/Page2/subPages/Service/model.dart';
 import 'package:mobydoby/Pages/Page2/subPages/Service/service.dart';
 import 'package:mobydoby/Pages/Page2/subPages/Widget/items.dart';
 import 'package:mobydoby/Pages/common/subPages/ItemsView.dart';
+import 'package:mobydoby/common/colors.dart';
 
 
 class Itemfeed extends StatefulWidget {
@@ -31,7 +32,7 @@ class _ItemfeedState extends State<Itemfeed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(23, 23, 23, 1),
+      backgroundColor: background,
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           String thisTitle = widget.category;
@@ -41,9 +42,9 @@ class _ItemfeedState extends State<Itemfeed> {
               pinned: true,
               floating: true,
               forceElevated: innerBoxIsScrolled,
-              backgroundColor: const Color.fromRGBO(22, 22, 22, 1),
-              iconTheme: const IconThemeData(
-                color: Color.fromRGBO(237, 136, 48, 1),
+              backgroundColor: background,
+              iconTheme: IconThemeData(
+                color:icon_color ,
                 size: 30,
               ),
               flexibleSpace: FlexibleSpaceBar(
@@ -65,11 +66,27 @@ class _ItemfeedState extends State<Itemfeed> {
             future: _futureMeals,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}'));
-              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return const Center(child: Text('No items found'));
+                return ListView.builder(
+                  itemCount: 10 ,
+                  itemBuilder: (context, index) {
+                    return const SizedBox(
+                      width: 200.0,
+                      height: 100.0,
+                      child: const Text(
+                        'Shimmer',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 40.0,
+                          fontWeight:
+                          FontWeight.bold,
+                        ),
+                      ),
+                    );
+                  },
+                );
+
+
+
               } else {
                 var items = snapshot.data!;
                 return ListView.builder(
