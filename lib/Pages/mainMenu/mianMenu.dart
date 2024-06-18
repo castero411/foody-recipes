@@ -1,5 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:mobydoby/Pages/common/subPages/ItemsView.dart';
+import 'package:mobydoby/Pages/mainMenu/widgets/CarouselItem.dart';
 import 'package:mobydoby/common/colors.dart';
 
 import 'widgets/Widgets.dart';
@@ -47,26 +49,46 @@ class _page_1State extends State<mainMenu> {
 
       ),
       backgroundColor: background,
-      body: RefreshIndicator(
-        onRefresh: _refresh,
-        child: GridView.builder(
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.only(bottom: 50),
+            child:  SizedBox(
+              width: 380,
+              child:
+               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Pick Your Meal",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),textAlign:TextAlign.left,),
+                  Text("Discover Meals across the world",style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w400,fontSize: 20),textAlign:TextAlign.left,),
+                ],
+              ),
+            ),
+          ),
 
 
-            itemCount: Menu.length,
+          RefreshIndicator(
+          onRefresh: _refresh,
+          child: CarouselSlider.builder(
+              itemCount: Menu.length,
+              itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+                  Item(Image: Menu[itemIndex][0] ,
+                    ItemName: Menu[itemIndex][1],
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => ItemView(itemCode: Menu[itemIndex][2],random: true,))// true for not random XD
+                        );
+                      },),
 
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-            itemBuilder: (context,index){
-
-              return InkWell(
-                  onTap: (){
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ItemView(itemCode: Menu[index][2],random: true,))// true for not random XD
-                    );
-                  },
-
-                  child: MenuItem(name:Menu[index][1],url:Menu[index][0]));
-            }),
-      ),
+              options: CarouselOptions(
+                height: 400,
+                autoPlay: true,
+                enlargeCenterPage: true,
+                initialPage: 2,
+              )
+          ),
+        ),
+      ]),
 
     );
   }
